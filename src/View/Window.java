@@ -35,7 +35,7 @@ public class Window extends JFrame implements MouseMotionListener, KeyListener {
         this.createBufferStrategy(2);
         this.setSize(widthWindow, heightWindow);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
         myBuffer = this.getBufferStrategy();
         this.repaint();
     }
@@ -50,53 +50,57 @@ public class Window extends JFrame implements MouseMotionListener, KeyListener {
             myBuffer.show();
         }
     }
+
     /**
      * draw the images
-     * @param g 
+     *
+     * @param g
      */
     public void drawImages(Graphics2D g) {
-        ArrayList<Animation> animations= controller.getAnimations();
-        for (Animation animation: animations) {
+        ArrayList<Animation> animations = controller.getAnimations();
+        for (Animation animation : animations) {
             Image image = animation.getImg_anima();
             int posX = animation.getPosX();
             int posY = animation.getPosY();
-            g.drawImage(image, posX, posY,this);
+            g.drawImage(image, posX, posY, this);
         }
-        
+
     }
 
+    /**
+     * Method for move the hero with the mouse
+     *
+     * @param e
+     */
     @Override
     public void mouseMoved(MouseEvent e) {
-        if (controller.getHeroe() != null && controller != null) {
-            controller.getHeroe().setPosX(e.getX());
-            controller.getHeroe().setPosY(e.getY());
-            controller.checkCollision();
-        }
-
+        Animation hero = controller.getAnimation("fly");
+        hero.setPosX(e.getX());
+        hero.setPosY(e.getY());
+        controller.checkCollision();
     }
-
-    public AnimationController getGest() {
-        return controller;
-    }
+    
+    /**
+     * Control the events of the key
+     * @param e 
+     */
 
     @Override
     public void keyPressed(KeyEvent e) {
-
-        if (e.getKeyCode() == 37) {
-            System.out.println("izquierda");
-            controller.getApple().setPosX(controller.getApple().getPosX() - 10);
+        Animation apple = controller.getAnimation("apple");
+        int posX = apple.getPosX();
+        int posY = apple.getPosY();
+        if (e.getKeyCode() == 37) {//Left
+            apple.setPosX(posX - 10);
         }
-        if (e.getKeyCode() == 38) {
-            System.out.println("arriba ");
-            controller.getApple().setPosY(controller.getApple().getPosY() - 10);
+        if (e.getKeyCode() == 38) {//Up
+            apple.setPosY(posY - 10);
         }
-        if (e.getKeyCode() == 39) {
-            controller.getApple().setPosX(controller.getApple().getPosX() + 10);
-            System.out.println("derecha");
+        if (e.getKeyCode() == 39) {//Rigth
+            apple.setPosX(posX + 10);
         }
-        if (e.getKeyCode() == 40) {
-            System.out.println("abajo");
-            controller.getApple().setPosY(controller.getApple().getPosY() + 10);
+        if (e.getKeyCode() == 40) {//Down
+            apple.setPosY(posY + 10);
         }
 
     }
@@ -113,4 +117,9 @@ public class Window extends JFrame implements MouseMotionListener, KeyListener {
     @Override
     public void keyTyped(KeyEvent e) {
     }
+
+    public AnimationController getGest() {
+        return controller;
+    }
+
 }

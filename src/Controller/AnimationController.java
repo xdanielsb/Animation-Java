@@ -56,7 +56,7 @@ public class AnimationController extends Thread {
      * @param nameHero
      * @return 
      */
-    public Animation getHeroe(String nameHero) {
+    public Animation getAnimation(String nameHero) {
         Animation aux = null;
         for (Animation animation : animations) {
             if (animation.getNombreAnimacion().equals(nameHero)) {
