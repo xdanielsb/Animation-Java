@@ -50,7 +50,7 @@ public class Window extends JFrame implements MouseMotionListener, KeyListener {
         if (gest.getHeroe() != null && gest != null) {
             gest.getHeroe().setPosX(e.getX());
             gest.getHeroe().setPosY(e.getY());
-            gest.verificar();
+            gest.checkCollision();
         }
 
     }
