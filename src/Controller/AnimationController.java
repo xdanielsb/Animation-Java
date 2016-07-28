@@ -19,7 +19,6 @@ public class AnimationController extends Thread {
         //Create the animation of the app
         animations.add(createAnimations("fly", 20));
         animations.add(createAnimations("apple", 4));
-
     }
 
     /**
@@ -52,7 +51,11 @@ public class AnimationController extends Thread {
         }
 
     }
-
+    /**
+     * Method for getting the heroe
+     * @param nameHero
+     * @return 
+     */
     public Animation getHeroe(String nameHero) {
         Animation aux = null;
         for (Animation animation : animations) {
@@ -62,5 +65,10 @@ public class AnimationController extends Thread {
         }
         return aux;
     }
+
+    public ArrayList<Animation> getAnimations() {
+        return animations;
+    }
+    
 
 }
