@@ -20,7 +20,6 @@ public class Animation {
     private Window window;
     private TheadsAnimations actions;
 
-    
     public Animation(String nombre, int tam, Window ventana) {
         this.name = nombre;
         this.sizeSprint = tam;
@@ -32,12 +31,12 @@ public class Animation {
         actions = new TheadsAnimations(ventana, this);
         loadpathsImagesAnimation(nombre, sizeSprint);
         actions.start();
-        
+
     }
 
     public void loadpathsImagesAnimation(String nombre, int tam) {
         for (int i = 0; i < sizeSprint; i++) {
-            pathsImages[i]  = (i<10) ? "./imagenes/" + nombre + "_000" + i + ".png" :"./imagenes/" + nombre + "_00" + i + ".png";
+            pathsImages[i] = (i < 10) ? "./imagenes/" + nombre + "_000" + i + ".png" : "./imagenes/" + nombre + "_00" + i + ".png";
         }
     }
 
@@ -76,9 +75,8 @@ public class Animation {
     public void setImg_anima(String dir_img_anima) {
         //img_anima = Toolkit.getDefaultToolkit().getImage(dir_img_anima);
         try {
-            if (dir_img_anima!=null) {
-                 currentImage = ImageIO.read(new File(dir_img_anima));
-            }          
+            currentImage = ImageIO.read(new File(dir_img_anima));
+
         } catch (IOException ex) {
 
         }

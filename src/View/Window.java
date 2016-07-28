@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import javax.swing.JFrame;
 import model.Animation;
 
@@ -46,7 +47,11 @@ public class Window extends JFrame implements MouseMotionListener, KeyListener {
         if (myBuffer != null) {
             g2 = (Graphics2D) myBuffer.getDrawGraphics();
             g2.clearRect(0, 0, widthWindow, heightWindow);
-            this.drawImages(g2);
+            try {
+                this.drawImages(g2);
+            } catch (ConcurrentModificationException ex) {
+
+            }
             myBuffer.show();
         }
     }
@@ -79,12 +84,12 @@ public class Window extends JFrame implements MouseMotionListener, KeyListener {
         hero.setPosY(e.getY());
         controller.checkCollision();
     }
-    
+
     /**
      * Control the events of the key
-     * @param e 
+     *
+     * @param e
      */
-
     @Override
     public void keyPressed(KeyEvent e) {
         Animation apple = controller.getAnimation("apple");
