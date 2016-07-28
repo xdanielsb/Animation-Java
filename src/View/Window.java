@@ -107,7 +107,6 @@ public class Window extends JFrame implements MouseMotionListener, KeyListener {
         if (e.getKeyCode() == 40) {//Down
             apple.setPosY(posY + 10);
         }
-
     }
 
     @Override
