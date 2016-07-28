@@ -21,7 +21,7 @@ public class Window extends JFrame implements MouseMotionListener, KeyListener {
 
     private AnimationController controller;
     private BufferStrategy myBuffer;
-    private static final int widthWindow = 800, heightWindow = 800;
+    private static final int widthWindow = 800, heightWindow = 400;
 
     public Window(AnimationController aux) {
         this.controller = aux;
@@ -32,7 +32,7 @@ public class Window extends JFrame implements MouseMotionListener, KeyListener {
 
         //Add properties
         this.setVisible(true);
-        this.setLocationRelativeTo(null);
+        
         this.createBufferStrategy(2);
         this.setSize(widthWindow, heightWindow);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

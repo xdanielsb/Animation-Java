@@ -40,6 +40,25 @@ public class Animation {
         }
     }
 
+    public void setImage(String dir_img_anima) {
+        //img_anima = Toolkit.getDefaultToolkit().getImage(dir_img_anima);
+        try {
+            currentImage = ImageIO.read(new File(dir_img_anima));
+        } catch (IOException ex) {
+        }
+    }
+
+
+    public void setNumCurrentImage() {
+        numCurrentImage++ ;
+        numCurrentImage%=sizeSprint; 
+    }
+
+    
+    public int getNumCurrentImage() {
+        return numCurrentImage;
+    }
+    
     public String getName() {
         return name;
     }
@@ -70,29 +89,6 @@ public class Animation {
 
     public Image getImg_anima() {
         return currentImage;
-    }
-
-    public void setImg_anima(String dir_img_anima) {
-        //img_anima = Toolkit.getDefaultToolkit().getImage(dir_img_anima);
-        try {
-            currentImage = ImageIO.read(new File(dir_img_anima));
-
-        } catch (IOException ex) {
-
-        }
-    }
-
-    public int getNum_imag_Actual() {
-        return numCurrentImage;
-    }
-
-    public void setNum_imag_Actual() {
-
-        if (numCurrentImage == sizeSprint - 1) {
-            numCurrentImage = 0;
-            System.out.println("Entro");
-        }
-        numCurrentImage++;
     }
 
 }

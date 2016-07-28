@@ -26,9 +26,8 @@ public class TheadsAnimations extends Thread {
     public void run() {
         while (true) {
             
-            animation.setImg_anima(animation.getPathsAnimations()[animation.getNum_imag_Actual()]);
-            animation.setNum_imag_Actual();
-            System.out.println(animation.getName());
+            animation.setImage(animation.getPathsAnimations()[animation.getNumCurrentImage()]);
+            animation.setNumCurrentImage();
             screen.repaint();
             try {
                 sleep(1000 / animation.getSizeSprint());
