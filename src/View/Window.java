@@ -1,6 +1,6 @@
 package View;
 
-import Control.GestorAnimacion;
+import Controller.AnimationController;
 import java.awt.*;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
@@ -12,10 +12,10 @@ import javax.swing.JFrame;
 
 public class Window extends JFrame implements MouseMotionListener, KeyListener {
 
-    private GestorAnimacion gest;
+    private AnimationController gest;
     private BufferStrategy myBuffer;
 
-    public Window(GestorAnimacion gest) {
+    public Window(AnimationController gest) {
         this.setSize(800, 800);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.addMouseMotionListener(this);
@@ -55,7 +55,7 @@ public class Window extends JFrame implements MouseMotionListener, KeyListener {
 
     }
 
-    public GestorAnimacion getGest() {
+    public AnimationController getGest() {
         return gest;
     }
 

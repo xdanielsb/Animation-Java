@@ -1,16 +1,16 @@
-package Control;
+package Controller;
 
 import View.Window;
-import model.animacion;
+import model.Animation;
 
 import static java.lang.Thread.sleep;
 
 public class Ejecucion extends Thread {
 
     private Window Ventana;
-    private animacion animado;
+    private Animation animado;
 
-    public Ejecucion(Window ventana, animacion personaje) {
+    public Ejecucion(Window ventana, Animation personaje) {
         this.Ventana = ventana;
         this.animado = personaje;
     }
@@ -20,12 +20,11 @@ public class Ejecucion extends Thread {
         while (true) {
             animado.setImg_anima(animado.getDirImagenes()[animado.getNum_imag_Actual()]);
             animado.setNum_imag_Actual();
-            
             System.out.println(animado.getNombreAnimacion());
             Ventana.repaint();
             try {
                 sleep(1000 / animado.getTamanospri());
-            } catch (InterruptedException ex) {            
+            } catch (InterruptedException ex) {
             }
         }
 

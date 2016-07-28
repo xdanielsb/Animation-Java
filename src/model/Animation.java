@@ -1,6 +1,6 @@
 package model;
 
-import Control.Ejecucion;
+import Controller.Ejecucion;
 import View.Window;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-public class animacion {
+public class Animation {
 
     private String name_Animac;
     private int Size_Sprint;
@@ -20,7 +20,7 @@ public class animacion {
     private Window Ventana;
     private Ejecucion acciones;
 
-    public animacion(String nombre, int tam, Window ventana) {
+    public Animation(String nombre, int tam, Window ventana) {
         this.name_Animac = nombre;
         this.Size_Sprint = tam;
         this.Ventana = ventana;
