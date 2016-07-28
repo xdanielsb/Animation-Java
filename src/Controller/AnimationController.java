@@ -33,8 +33,6 @@ public class AnimationController extends Thread {
      */
     public Animation createAnimations(String nameHero, int numberImages) {
         Animation animation = new Animation(nameHero, numberImages, windowAnimations);
-        animation.setPosY(50);
-        animation.setPosX(150);
         return animation;
     }
 
@@ -62,7 +60,7 @@ public class AnimationController extends Thread {
     public Animation getAnimation(String nameHero) {
         Animation aux = null;
         for (Animation animation : animations) {
-            if (animation.getNombreAnimacion().equals(nameHero)) {
+            if (animation.getName().equals(nameHero)) {
                 aux = animation;
             }
         }
