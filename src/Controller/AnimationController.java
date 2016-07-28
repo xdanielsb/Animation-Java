@@ -37,29 +37,30 @@ public class AnimationController extends Thread {
     }
 
     /**
-     * Method for checking the collision among the animations
-     * Note: Change the range  of the width and height of the images
-     * for being more accurate of the colliision
+     * Method for checking the collision among the animations Note: Change the
+     * range of the width and height of the images for being more accurate of
+     * the colliision
      */
-    
     public void checkCollision() {
         for (Animation animation_origin : animations) {
             for (Animation animation_destiny : animations) {
-                if (animation_origin.getPosX()==animation_destiny.getPosX() 
-                && animation_destiny.getPosY() == animation_origin.getPosY()) {
-                    
+                if (animation_origin.getPosX() == animation_destiny.getPosX()
+                        && animation_destiny.getPosY() == animation_origin.getPosY()) {
+                    System.out.println("The animations have collided");
                 }
             }
         }
-        
+
     }
 
-    public Animation getHeroe() {
-        return hero;
-    }
-
-    public Animation getApple() {
-        return apple;
+    public Animation getHeroe(String nameHero) {
+        Animation aux = null;
+        for (Animation animation : animations) {
+            if (animation.getNombreAnimacion().equals(nameHero)) {
+                aux = animation;
+            }
+        }
+        return aux;
     }
 
 }
