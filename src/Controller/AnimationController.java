@@ -2,8 +2,11 @@ package Controller;
 
 import View.Window;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import model.Animation;
+/**
+ * 
+ * @author Daniel
+ */
 
 public class AnimationController extends Thread {
 

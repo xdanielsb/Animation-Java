@@ -1,6 +1,6 @@
 package model;
 
-import Controller.Ejecucion;
+import Controller.TheadsAnimations;
 import View.Window;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -18,7 +18,7 @@ public class Animation {
     private Image img_anima;
     private int num_imag_Actual;
     private Window Ventana;
-    private Ejecucion acciones;
+    private TheadsAnimations acciones;
 
     public Animation(String nombre, int tam, Window ventana) {
         this.name_Animac = nombre;
@@ -29,7 +29,7 @@ public class Animation {
         this.num_imag_Actual = 0;
         this.img_anima = null;
         Adress_Imagenes = new String[Size_Sprint];
-        acciones = new Ejecucion(ventana, this);
+        acciones = new TheadsAnimations(ventana, this);
         acciones.start();
         this.cargarDirImagenes(nombre, Size_Sprint);
     }
