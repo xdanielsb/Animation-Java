@@ -20,6 +20,7 @@ public class AnimationController extends Thread {
         this.windowAnimations = new Window(this);
         this.animations = new ArrayList<>();
         //Create the animation of the app
+        System.out.println("Creating the animations.");
         animations.add(createAnimations("fly", 20));
         animations.add(createAnimations("apple", 4));
     }
