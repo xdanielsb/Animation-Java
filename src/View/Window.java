@@ -21,9 +21,11 @@ public class Window extends JFrame implements MouseMotionListener, KeyListener {
 
     private AnimationController controller;
     private BufferStrategy myBuffer;
-    private static final int widthWindow = 800, heightWindow = 400;
+    private static final int widthWindow = 400, heightWindow = 400;
 
     public Window(AnimationController aux) {
+        System.out.println("\nPress the Arrows to move the apple.\n");
+        System.out.println("\nUse the mouse to move the hero.\n");
         this.controller = aux;
 
         //Add listeners
