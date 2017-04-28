@@ -21,6 +21,7 @@ public class Animation {
     private TheadsAnimations actions;
 
     public Animation(String nombre, int tam, Window ventana) {
+        System.out.println("Creating the animation"+ nombre);
         this.name = nombre;
         this.sizeSprint = tam;
         this.window = ventana;
@@ -36,7 +37,8 @@ public class Animation {
 
     public void loadpathsImagesAnimation(String nombre, int tam) {
         for (int i = 0; i < sizeSprint; i++) {
-            pathsImages[i] = (i < 10) ? "../../imagenes/" + nombre + "_000" + i + ".png" : "./imagenes/" + nombre + "_00" + i + ".png";
+            pathsImages[i] = (i < 10) ? "../imagenes/" + nombre + "_000" + i + ".png" : "../imagenes/" + nombre + "_00" + i + ".png";
+            System.out.println(pathsImages[i]);
         }
     }
 
@@ -51,14 +53,14 @@ public class Animation {
 
     public void setNumCurrentImage() {
         numCurrentImage++ ;
-        numCurrentImage%=sizeSprint; 
+        numCurrentImage%=sizeSprint;
     }
 
-    
+
     public int getNumCurrentImage() {
         return numCurrentImage;
     }
-    
+
     public String getName() {
         return name;
     }

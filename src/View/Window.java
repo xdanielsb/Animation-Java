@@ -32,7 +32,7 @@ public class Window extends JFrame implements MouseMotionListener, KeyListener {
 
         //Add properties
         this.setVisible(true);
-        
+
         this.createBufferStrategy(2);
         this.setSize(widthWindow, heightWindow);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -82,7 +82,6 @@ public class Window extends JFrame implements MouseMotionListener, KeyListener {
         Animation hero = controller.getAnimation("fly");
         hero.setPosX(e.getX());
         hero.setPosY(e.getY());
-        controller.checkCollision();
     }
 
     /**
